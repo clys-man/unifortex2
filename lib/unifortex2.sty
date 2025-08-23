@@ -3,9 +3,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Customizações do abnTeX2 (http://abnTeX2.googlecode.com)           %%
-%% para a Universidade Estadual do Ceara - UECE                       %%
+%% para a Universidade de Fortaleza - UNIFOR                          %%
 %%                                                                    %%
-%% This work may be distributed and/or modified under the             %% 
+%% This work may be distributed and/or modified under the             %%
 %% conditions of the LaTeX Project Public License, either version 1.3 %%
 %% of this license or (at your option) any later version.             %%
 %% The latest version of this license is in                           %%
@@ -15,9 +15,9 @@
 %%                                                                    %%
 %% This work has the LPPL maintenance status `maintained'.            %%
 %%                                                                    %%
-%% The Current Maintainer of this work is Thiago Nascimento           %%
+%% The Current Maintainer of this work is Clysman Alves               %%
 %%                                                                    %%
-%% Project available on: https://github.com/thiagodnf/uecetex2        %%
+%% Project available on: https://github.com/clys-man/unifortex2       %%
 %%                                                                    %%
 %% Further information about abnTeX2                                  %%
 %% are available on http://abntex2.googlecode.com/                    %%
@@ -115,7 +115,7 @@
 \renewcommand{\cfttablefont}{\bfseries}
 
 
-% Remove o ponto final de cada entrada da 
+% Remove o ponto final de cada entrada da
 %lista de abreviaturas e siglas
 \renewcommand{\glspostdescription}{}
 
@@ -138,13 +138,25 @@
 	\renewcommand{\indexname}{\'INDICE}
 	\renewcommand{\contentsname}{Sum\'ario}
 	\renewcommand{\listadesimbolosname}{Lista de Símbolos}
-	\renewcommand{\lstlistingname}{Código-fonte}% Listing -> Algorithm
-	\renewcommand{\lstlistlistingname}{Lista de Códigos-Fontes}%
-	\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}%
-	\renewcommand{\algorithmcfname}{Algoritmo}%
-	\renewcommand{\cftquadroname}{Quadro\space}%
-	\renewcommand{\apendicesname}{AP\^ENDICES}%
-	\renewcommand{\anexosname}{ANEXOS}%
+	\renewcommand{\lstlistingname}{Código-fonte}
+	\renewcommand{\lstlistlistingname}{Lista de Códigos-Fontes}
+	\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}
+	\renewcommand{\algorithmcfname}{Algoritmo}
+	\renewcommand{\cftquadroname}{Quadro\space}
+	\renewcommand{\listofquadrosname}{Lista de Quadros}%
+	\renewcommand{\apendicesname}{AP\^ENDICES}
+	\renewcommand{\anexosname}{ANEXOS}
+	\renewcommand{\glossarioname}{GLOSSÁRIO}%
+	\def\tableautorefname{Tabela}%
+	\def\figureautorefname{Figura}%
+	\def\sectionautorefname{Seção}%
+	\def\chapterautorefname{Capítulo}%
+	\def\subsectionautorefname{Subseção}%
+	\renewcommand{\teoremaname}{Teorema}%
+	\renewcommand{\proposicaoname}{Proposição}%
+	\renewcommand{\exemploname}{Exemplo}%
+	\renewcommand{\definicaoname}{Definição}%
+	\renewcommand{\questaoname}{Questão}%
 	\renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
 	\renewcommand{\listadesiglasname}{Lista de Abreviaturas e Siglas}
 }
@@ -181,7 +193,7 @@
 \SetKwBlock{Inicio}{inicio}{fim}
 
 % Na versao mais nova do algorithm2e (versao 5.1) aparentemente foram adicionados
-% algumas palavras com acentuacao e por isso estava causando erro no template. 
+% algumas palavras com acentuacao e por isso estava causando erro no template.
 % Os comandos a seguir foram copiados da versao mais nova para tentar resolver o problema.
 \SetKwInput{Entrada}{Entrada}%
 \SetKwInput{Saida}{Sa\'{i}da}%
@@ -229,7 +241,7 @@
 }
 
 % Cria o comando para fazer notas e anotacoes na figura e na tabela
-\newcommand{\Nota}[2][\notaname]{\Fonte[#1]{#2}} 
+\newcommand{\Nota}[2][\notaname]{\Fonte[#1]{#2}}
 
 
 %Remove as bordas do hyperlinks.
@@ -259,31 +271,31 @@
 % Adiciona o sexo do orientador e do co-orientador no documento atraves
 % do artigo "a".
 
-\createBooleanVariable{uecetex2@adicionarPaginaAnexosNoSumario}{false}
-\createBooleanVariable{uecetex2@adicionarPaginaAnexosNoCorpoDoTexto}{false}
-\createBooleanVariable{uecetex2@adicionarPaginaApendicesNoSumario}{false}
-\createBooleanVariable{uecetex2@adicionarPaginaApendicesNoCorpoDoTexto}{false}
+\createBooleanVariable{unifortex2@adicionarPaginaAnexosNoSumario}{false}
+\createBooleanVariable{unifortex2@adicionarPaginaAnexosNoCorpoDoTexto}{false}
+\createBooleanVariable{unifortex2@adicionarPaginaApendicesNoSumario}{false}
+\createBooleanVariable{unifortex2@adicionarPaginaApendicesNoCorpoDoTexto}{false}
 
-\provideboolean{uecetex2@orientadorfeminino}
-\provideboolean{uecetex2@coorientadorfeminino}
+\provideboolean{unifortex2@orientadorfeminino}
+\provideboolean{unifortex2@coorientadorfeminino}
 
-\setboolean{uecetex2@orientadorfeminino}{false}
-\setboolean{uecetex2@coorientadorfeminino}{false}
+\setboolean{unifortex2@orientadorfeminino}{false}
+\setboolean{unifortex2@coorientadorfeminino}{false}
 
 \newcommand{\orientadorfeminino}[1]{
 	 \ifthenelse{\equal{#1}{sim}}{%
-	 	\setboolean{uecetex2@orientadorfeminino}{true}
+	 	\setboolean{unifortex2@orientadorfeminino}{true}
 	 }
 }
 
 \newcommand{\coorientadorfeminino}[1]{
 	\ifthenelse{\equal{#1}{sim}}{%
-		\setboolean{uecetex2@coorientadorfeminino}{true}
+		\setboolean{unifortex2@coorientadorfeminino}{true}
 	}
 }
 
 \newcommand{\artigoorientador}{ %
-	\ifthenelse{\boolean{uecetex2@orientadorfeminino}}{ %
+	\ifthenelse{\boolean{unifortex2@orientadorfeminino}}{ %
 		\unskip Orientadora\ignorespaces%
 	}{ %
 		\unskip Orientador\ignorespaces%
@@ -291,7 +303,7 @@
 }
 
 \newcommand{\artigocoorientador}{ %
-	\ifthenelse{\boolean{uecetex2@coorientadorfeminino}}{ %
+	\ifthenelse{\boolean{unifortex2@coorientadorfeminino}}{ %
 		Co-Orientadora\ignorespaces%
 	}{ %
 		Co-Orientador\ignorespaces%
@@ -299,7 +311,7 @@
 }
 
 \newcommand{\artigoorientadorcomparenteses}{ %
-	\ifthenelse{\boolean{uecetex2@orientadorfeminino}}{ %
+	\ifthenelse{\boolean{unifortex2@orientadorfeminino}}{ %
 		(Orientadora)\ignorespaces%
 	}{ %
 		(Orientador)\ignorespaces%
@@ -307,7 +319,7 @@
 }
 
 \newcommand{\artigocoorientadorcomparenteses}{ %
-	\ifthenelse{\boolean{uecetex2@coorientadorfeminino}}{ %
+	\ifthenelse{\boolean{unifortex2@coorientadorfeminino}}{ %
 		(Co-Orientadora)\ignorespaces%
 	}{ %
 		(Co-Orientador)\ignorespaces%
@@ -315,50 +327,50 @@
 }
 
 % Variaveis utilizada para gerar o documento de qualificacao
-\provideboolean{uecetex2@ehqualificacao}
-\setboolean{uecetex2@ehqualificacao}{false}
+\provideboolean{unifortex2@ehqualificacao}
+\setboolean{unifortex2@ehqualificacao}{false}
 
 \newcommand{\ehqualificacao}[1]{
 	\ifthenelse{\equal{#1}{sim}}{%
-		\setboolean{uecetex2@ehqualificacao}{true}
+		\setboolean{unifortex2@ehqualificacao}{true}
 	}
 }
 
 % Determina o tipo do trabalho apresentado
 % Definicao das variaveis
-\provideboolean{uecetex2@ehtccgraduacao}
-\provideboolean{uecetex2@ehtccespecializacao}
-\provideboolean{uecetex2@ehdissertacao}
-\provideboolean{uecetex2@ehtese}
+\provideboolean{unifortex2@ehtccgraduacao}
+\provideboolean{unifortex2@ehtccespecializacao}
+\provideboolean{unifortex2@ehdissertacao}
+\provideboolean{unifortex2@ehtese}
 
 % Valores Iniciais
-\setboolean{uecetex2@ehtccgraduacao}{false}
-\setboolean{uecetex2@ehtccespecializacao}{false}
-\setboolean{uecetex2@ehdissertacao}{true}
-\setboolean{uecetex2@ehtese}{false}
+\setboolean{unifortex2@ehtccgraduacao}{false}
+\setboolean{unifortex2@ehtccespecializacao}{false}
+\setboolean{unifortex2@ehdissertacao}{true}
+\setboolean{unifortex2@ehtese}{false}
 
 \newcommand{\trabalhoacademico}[1]{
-	\setboolean{uecetex2@ehtccgraduacao}{false}
-	\setboolean{uecetex2@ehtccespecializacao}{false}
-	\setboolean{uecetex2@ehdissertacao}{false}
-	\setboolean{uecetex2@ehtese}{false}
-	
+	\setboolean{unifortex2@ehtccgraduacao}{false}
+	\setboolean{unifortex2@ehtccespecializacao}{false}
+	\setboolean{unifortex2@ehdissertacao}{false}
+	\setboolean{unifortex2@ehtese}{false}
+
 	\ifthenelse{\equal{#1}{tccgraduacao}}{%
-		\setboolean{uecetex2@ehtccgraduacao}{true}
+		\setboolean{unifortex2@ehtccgraduacao}{true}
 	}{
 		\ifthenelse{\equal{#1}{tccespecializacao}}{%
-			\setboolean{uecetex2@ehtccespecializacao}{true}
+			\setboolean{unifortex2@ehtccespecializacao}{true}
 		}{
 			\ifthenelse{\equal{#1}{dissertacao}}{%
-				\setboolean{uecetex2@ehdissertacao}{true}
+				\setboolean{unifortex2@ehdissertacao}{true}
 			}{
 				\ifthenelse{\equal{#1}{tese}}{%
-					\setboolean{uecetex2@ehtese}{true}
+					\setboolean{unifortex2@ehtese}{true}
 				}{
-					\setboolean{uecetex2@ehdissertacao}{true}
+					\setboolean{unifortex2@ehdissertacao}{true}
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -367,7 +379,7 @@
 	\hypersetup{ %
 		pdftitle={\imprimirtitulo},%
 		pdfauthor={\imprimirautor}, %
-		pdfsubject={Powered by ueceTeX2 - Acesse https://github.com/thiagodnf/uecetex2} %
+		pdfsubject={Powered by uniforTeX2 - Acesse https://github.com/clys-man/unifortex2} %
 	}%
 	% Define a altura das equacoes matematicas
 %	\abovedisplayskip=-1pt plus 3pt minus 9pt
@@ -391,9 +403,9 @@
 \fi % This needs to be \fi, not \if
 
 % Comandos para inserir figuras, tabelas e quadros
-\newcommand{\UECEfig}[3]{\IBGEtab{#1}{#2}{#3}}
-\newcommand{\UECEtab}[3]{\IBGEtab{#1}{#2}{#3}}
-\newcommand{\UECEqua}[3]{\IBGEtab{#1}{#2}{#3}}
+\newcommand{\UNIFORfig}[3]{\IBGEtab{#1}{#2}{#3}}
+\newcommand{\UNIFORtab}[3]{\IBGEtab{#1}{#2}{#3}}
+\newcommand{\UNIFORqua}[3]{\IBGEtab{#1}{#2}{#3}}
 
 % Ambiente para alineas e e subalineas (incisos) com ponto
 \newlist{alineascomponto}{itemize}{2}
@@ -425,6 +437,7 @@
 %%             Variáveis               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\fundacao}{\def \@fundacao}
 \newcommand{\ies}{\def \@ies}
 \newcommand{\iessigla}{\def \@iessigla}
 \newcommand{\centro}{\def \@centro}
@@ -467,6 +480,7 @@
 %%        Imprimir as Variáveis        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\imprimirfundacao}{\@fundacao}
 \newcommand{\imprimiries}{\@ies}
 \newcommand{\imprimiriessigla}{\@iessigla}
 \newcommand{\imprimircentro}{\@centro}
@@ -509,9 +523,9 @@
 %%           Valor de Padrão           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\ies{Universidade Estadual do Ceará}
-\iessigla{UECE}
+\fundacao{Fundação Edson Queiroz}
+\ies{Universidade de Fortaleza}
+\iessigla{UNIFOR}
 \centro{}
 \graduacaoem{}
 \habilitacao{} % Pode colocar tambem 'licenciada'
@@ -575,23 +589,23 @@
 }
 
 \preambulo{
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{ %
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{ %
 		Proposta de qualificação apresentada ao Curso de \imprimirmestrado\  da \imprimiries\ (\imprimiriessigla) como requisito parcial para a defesa de dissertação.
 	}{ %
-		\ifthenelse{\boolean{uecetex2@ehdissertacao}}{ %
-			\preambulodissertacao %	
+		\ifthenelse{\boolean{unifortex2@ehdissertacao}}{ %
+			\preambulodissertacao %
 		}{
-			\ifthenelse{\boolean{uecetex2@ehtese}}{ %
+			\ifthenelse{\boolean{unifortex2@ehtese}}{ %
 				\preambulotese	 %
 			}{
-				\ifthenelse{\boolean{uecetex2@ehtccgraduacao}}{ %
+				\ifthenelse{\boolean{unifortex2@ehtccgraduacao}}{ %
 					\preambulotccgraduacao	 %
 				}{
 					\preambulotccespecializacao %
 				}
 			}
 		}
-	} %	
+	} %
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -605,25 +619,25 @@
 		% Todos os elementos da capa devem esta em negrito
 		\bfseries
 
-        \includegraphics[scale=0.12]{lib/logo-uece} \\
+        \includegraphics[scale=.9]{lib/logo-unifor} \\
         \vspace{0.1cm}
 		\MakeUppercase{\imprimiries} \\
 		\MakeUppercase{\imprimircentro} \\
 		\abntex@ifnotempty{\imprimirprogramadoutorado}{
 			\MakeUppercase{\imprimirprogramadoutorado} \\
-		}		
+		}
 		\MakeUppercase{\imprimirdoutorado} \\
 
-		\vspace{\onelineskip}
+		\vspace{2cm}
 
 		\MakeUppercase{\imprimirautor}
-		
+
 		\vspace{5cm}
-		
+
 		\MakeUppercase{\imprimirtitulo}
-		
+
 		\vfill
-		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\MakeUppercase\imprimirlocal\par
 		\normalsize\imprimirdata
 	\end{capa}
 }
@@ -635,66 +649,71 @@
 		% Todos os elementos da capa devem esta em negrito
 		\bfseries
 
-        \includegraphics[scale=0.12]{lib/logo-uece} \\
+        \includegraphics[scale=.9]{lib/logo-unifor} \\
         \vspace{0.1cm}
 		\MakeUppercase{\imprimiries} \\
 		\MakeUppercase{\imprimircentro} \\
 		\abntex@ifnotempty{\imprimirprogramamestrado}{
 			\MakeUppercase{\imprimirprogramamestrado} \\
-		}		
+		}
 		\MakeUppercase{\imprimirmestrado} \\
 
-		\vspace{\onelineskip}
+		\vspace{2cm}
 
 		\MakeUppercase{\imprimirautor}
-		
+
 		\vspace{5cm}
-		
+
 		\MakeUppercase{\imprimirtitulo}
-		
+
 		\vfill
-		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\MakeUppercase\imprimirlocal\par
 		\normalsize\imprimirdata
-	\end{capa}	
+	\end{capa}
 }
 
 \newcommand{\imprimircapatcc}[2]{%
 	\begin{capa}%
 		% Todos os elementos da capa devem esta centralizado
-		\center
+
 		% Todos os elementos da capa devem esta em negrito
 		\bfseries
-
-        \includegraphics[scale=0.12]{lib/logo-uece} \\
-        \vspace{0.1cm}
-		\MakeUppercase{\imprimiries} \\
+        \noindent\begin{minipage}{0.19\textwidth}
+        \includegraphics[scale=.9]{lib/logo-unifor}
+        \end{minipage}
+        \begin{minipage}{0.9\textwidth}        % \vspace{1cm}
+        \MakeUppercase{\vspace{1cm}\imprimirfundacao}\\
+		\MakeUppercase{\imprimiries   \space-  \imprimiriessigla} \\
 		\MakeUppercase{\imprimircentro} \\
 		\MakeUppercase{Curso de #1 em #2} \\
-
-		\vspace{\onelineskip}
-
-		\MakeUppercase{\imprimirautor}
-		
+  \end{minipage}
+\center
 		\vspace{5cm}
-		
-		\MakeUppercase{\imprimirtitulo}
-		
+        \MakeUppercase{\imprimirtitulo}
+
+        \vspace{4cm}
+		\MakeUppercase{\imprimirautor}
+
+		\vspace{5cm}
+
+
+
 		\vfill
-		\normalsize\MakeUppercase\imprimirlocal\par	
+		\normalsize\MakeUppercase\imprimirlocal\par
 		\normalsize\imprimirdata
-	\end{capa}	
+	\end{capa}
 }
 
 \renewcommand{\imprimircapa}{%
 	% Toda capa deve ter pagina 0
 	\setcounter{page}{0}
-	\ifthenelse{\boolean{uecetex2@ehdissertacao}}{ %
-			\imprimircapadissertacao %	
+	\ifthenelse{\boolean{unifortex2@ehdissertacao}}{ %
+			\imprimircapadissertacao %
 	}{
-		\ifthenelse{\boolean{uecetex2@ehtese}}{ %
+		\ifthenelse{\boolean{unifortex2@ehtese}}{ %
 			\imprimircapatese	 %
 		}{
-			\ifthenelse{\boolean{uecetex2@ehtccgraduacao}}{ %
+			\ifthenelse{\boolean{unifortex2@ehtccgraduacao}}{ %
 				\imprimircapatcc{Graduação}{\imprimirgraduacaoem}	 %
 			}{
 				\imprimircapatcc{Especialização}{\imprimirespecializacaoem} %
@@ -714,29 +733,29 @@
 		\vspace{6.5cm}\par
 		\normalsize\MakeUppercase\imprimirtitulo
 	\end{center}
-	
+
 	\vspace{2.5cm}
-	
+
 	%Retira o espaço do parágrafo
 	\hspace*{-2cm}
 	%Adiciona o espaço da margem
-	\hspace*{8cm}	
+	\hspace*{8cm}
 	\begin{minipage}{8cm}
 		\begin{SingleSpace}
-			\imprimirpreambulo	
+			\imprimirpreambulo
 			\newline
 			\artigoorientador: \ignorespaces\imprimirorientador \\
 			\abntex@ifnotempty{\imprimircoorientador}{
 				\newline
-				\artigocoorientador: \ignorespaces\imprimircoorientador				
+				\artigocoorientador: \ignorespaces\imprimircoorientador
 			}
-		\end{SingleSpace}		
+		\end{SingleSpace}
 	\end{minipage}
-	
+
 	\vfill
 	\centering
 	\normalsize\MakeUppercase\imprimirlocal \par
-	\normalsize\imprimirdata	
+	\normalsize\imprimirdata
 }
 \makeatother
 
@@ -756,7 +775,7 @@
 \newcommand{\imprimirfolhadeaprovacaotese}{
 	% Define o comprimento da linha das assinaturas na Folha de Aprovacao
 	\setlength{\ABNTEXsignwidth}{8cm}
-	
+
 	% Espaço entre uma assintura e outra
 	\setlength{\ABNTEXsignskip}{18pt}
 
@@ -766,56 +785,56 @@
 		\vspace{\onelineskip}
 		\MakeUppercase{\imprimirtitulo}
 	\end{center}
-	
+
 	\vspace{\onelineskip}
 	\vspace{\onelineskip}
-	
+
 	%Retira o espaço do parágrafo
 	\hspace*{-2cm}
 	%Adiciona o espaço da margem
-	\hspace*{8cm}	
+	\hspace*{8cm}
 	\begin{minipage}{7.5cm}
 		\begin{SingleSpace}
-			\imprimirpreambulo \\			
-		\end{SingleSpace}		
+			\imprimirpreambulo \\
+		\end{SingleSpace}
 	\end{minipage}
 
 	\vspace{\onelineskip}
-		
+
 	\noindent Aprovada em: \imprimirdataaprovacao
-	
+
 	\vspace{\onelineskip}
-	
+
 	\begin{center}
 		BANCA EXAMINADORA
 	\end{center}
-	
+
 	\vspace{\onelineskip}
 
 	% Membro Um da banca é sempre o Orientador
 	% Membro Dois da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimircoorientador}{
 		\hspace*{-2.5cm}
-		\assinatura*{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadories}		
-		\hspace*{0.7cm} 
+		\assinatura*{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadories}
+		\hspace*{0.7cm}
 		\assinatura*{\imprimircoorientador\ \artigocoorientadorcomparenteses \\ \imprimircoorientadories}
-		
+
 		\hspace*{-2.6cm}
 		% Membro Três da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancadois}{
 			\assinatura*{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoisies}
 		}{}
-		\hspace*{0.7cm} 		
+		\hspace*{0.7cm}
 		% Membro Três da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancatres}{
 			\assinatura*{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
 		}{}
-		\hspace*{-0.6cm} 
+		\hspace*{-0.6cm}
 		% Membro Quatro da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancaquatro}{
 			\assinatura*{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatroies}
-		}{}	
-		\hspace*{0.7cm} 
+		}{}
+		\hspace*{0.7cm}
 		\ifnotempty{\imprimirmembrodabancacinco}{
 			\assinatura*{\imprimirmembrodabancacinco \\ \imprimirmembrodabancacincoies}
 		}{}
@@ -823,35 +842,35 @@
 		% Espaço entre uma assintura e outra
 		\setlength{\ABNTEXsignskip}{2pt}
 		\hspace*{-2.5cm}
-		\assinatura*{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadories}		
-		\hspace*{0.7cm} 
+		\assinatura*{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadories}
+		\hspace*{0.7cm}
 		% Membro Três da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancadois}{
 			\assinatura*{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoisies}
 		}{}
-		
-		\hspace*{-2.6cm}		
+
+		\hspace*{-2.6cm}
 		% Membro Três da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancatres}{
 			\assinatura*{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
-		}{}		
-		\hspace*{0.7cm} 
+		}{}
+		\hspace*{0.7cm}
 		% Membro Quatro da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancaquatro}{
 			\assinatura*{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatroies}
 		}{}
-		
+
 		\hspace*{-2.65cm}
 		\ifnotempty{\imprimirmembrodabancacinco}{
 			\assinatura*{\imprimirmembrodabancacinco \\ \imprimirmembrodabancacincoies}
 		}{}
-		\hspace*{0.7cm} 
+		\hspace*{0.7cm}
 		% Membro Quatro da banca pode ser o coorientador ou outro membro
 		\ifnotempty{\imprimirmembrodabancaseis}{
 			\assinatura*{\imprimirmembrodabancaseis \\ \imprimirmembrodabancaseisies}
 		}{}
 	}
-	\pagebreak	
+	\pagebreak
 }
 
 \newcommand{\imprimirfolhadeaprovacaodissertacao}{
@@ -862,26 +881,26 @@
 		\vspace{\onelineskip}
 		\MakeUppercase{\imprimirtitulo}
 	\end{center}
-	
+
 	\vspace{\onelineskip}
 	\vspace{\onelineskip}
-	
+
 	%Retira o espaço do parágrafo
 	\hspace*{-2cm}
 	%Adiciona o espaço da margem
-	\hspace*{8cm}	
+	\hspace*{8cm}
 	\begin{minipage}{8cm}
 		\begin{SingleSpace}
-			\imprimirpreambulo \\			
-		\end{SingleSpace}		
+			\imprimirpreambulo \\
+		\end{SingleSpace}
 	\end{minipage}
 
 	\vspace{\onelineskip}
-		
+
 	\noindent Aprovada em: \imprimirdataaprovacao
-	
+
 	\vspace{\onelineskip}
-	
+
 	\begin{center}
 		BANCA EXAMINADORA
 	\end{center}
@@ -889,32 +908,32 @@
 
 	% Membro Um da banca é sempre o Orientador
 	\assinatura{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadories}
-	
+
 	% Membro Dois da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimircoorientador}{
 		\assinatura{\imprimircoorientador\ \artigocoorientadorcomparenteses \\ \imprimircoorientadories}
 	}
-	
+
 	% Membro Três da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancadois}{
 		\assinatura{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoisies}
 	}
-		
+
 	% Membro Três da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancatres}{
 		\assinatura{\imprimirmembrodabancatres \\ \imprimirmembrodabancatresies}
 	}
-	
+
 	% Membro Quatro da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancaquatro}{
 		\assinatura{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatroies}
-	}	
+	}
 
 	% Membro Quatro da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancacinco}{
 		\assinatura{\imprimirmembrodabancacinco \\ \imprimirmembrodabancacincoies}
-	}	
-	
+	}
+
 	\pagebreak
 }
 
@@ -926,26 +945,26 @@
 		\vspace{\onelineskip}
 		\MakeUppercase{\imprimirtitulo}
 	\end{center}
-	
+
 	\vspace{\onelineskip}
 	\vspace{\onelineskip}
-	
+
 	%Retira o espaço do parágrafo
 	\hspace*{-2cm}
 	%Adiciona o espaço da margem
-	\hspace*{8cm}	
+	\hspace*{8cm}
 	\begin{minipage}{8cm}
 		\begin{SingleSpace}
-			\imprimirpreambulo \\			
-		\end{SingleSpace}		
+			\imprimirpreambulo \\
+		\end{SingleSpace}
 	\end{minipage}
 
 	\vspace{\onelineskip}
-		
+
 	\noindent Aprovada em: \imprimirdataaprovacao
-	
+
 	\vspace{\onelineskip}
-	
+
 	\begin{center}
 		BANCA EXAMINADORA
 	\end{center}
@@ -953,38 +972,38 @@
 
 	% Membro Um da banca é sempre o Orientador
 	\assinatura{\imprimirorientador\  \artigoorientadorcomparenteses \\ \imprimirorientadorcentro \\  \imprimirorientadories}
-	
+
 	% Membro Dois da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimircoorientador}{
 		\assinatura{\imprimircoorientador\ \artigocoorientadorcomparenteses \\ \imprimircoorientadorcentro\\ \imprimircoorientadories}
 	}
-	
+
 	% Membro Três da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancadois}{
 		\assinatura{\imprimirmembrodabancadois \\ \imprimirmembrodabancadoiscentro \\ \imprimirmembrodabancadoisies}
 	}
-		
+
 	% Membro Três da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancatres}{
 		\assinatura{\imprimirmembrodabancatres \\ \imprimirmembrodabancatrescentro \\ \imprimirmembrodabancatresies}
 	}
-	
+
 	% Membro Quatro da banca pode ser o coorientador ou outro membro
 	\ifnotempty{\imprimirmembrodabancaquatro}{
 		\assinatura{\imprimirmembrodabancaquatro \\ \imprimirmembrodabancaquatrocentro \\ \imprimirmembrodabancaquatroies}
-	}	
-	
+	}
+
 	\pagebreak
 }
 
 \newcommand{\imprimirfolhadeaprovacao}{
-	\ifthenelse{\boolean{uecetex2@ehdissertacao}}{ %
-    	\imprimirfolhadeaprovacaodissertacao %	
+	\ifthenelse{\boolean{unifortex2@ehdissertacao}}{ %
+    	\imprimirfolhadeaprovacaodissertacao %
     }{
-    	\ifthenelse{\boolean{uecetex2@ehtese}}{ %
+    	\ifthenelse{\boolean{unifortex2@ehtese}}{ %
     		\imprimirfolhadeaprovacaotese	 %
     	}{
-    		\ifthenelse{\boolean{uecetex2@ehtccgraduacao}}{ %
+    		\ifthenelse{\boolean{unifortex2@ehtccgraduacao}}{ %
     			\imprimirfolhadeaprovacaotcc	 %
     		}{
     			\imprimirfolhadeaprovacaotcc
@@ -998,7 +1017,7 @@
 %   Definição de comandos e parâmetros específicos e configuração de ambientes de teorema
 %=======================================================
 % Retira a linha entre a citação inicial da fonte
-%\setlength{\epigraphrule}{0.0pt}  
+%\setlength{\epigraphrule}{0.0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%             Teoremas                %%
@@ -1053,13 +1072,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\imprimirdedicatoria}[1]{
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{}{
 		\vspace*{20cm}
 		\vfill
 		%Retira o espaço do parágrafo
 		\hspace*{-2cm}
 		%Adiciona o espaço da margem
-		\hspace*{8cm}	
+		\hspace*{8cm}
 		\begin{minipage}{8cm}
 			\input{#1}
 		\end{minipage}
@@ -1072,7 +1091,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\imprimirerrata}[1]{%
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{%
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{}{%
 		\begin{errata} %
 		\input{#1}%
 		\end{errata}%
@@ -1083,13 +1102,13 @@
 %%            Agradecimentos           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\imprimiragradecimentos}[1]{ 
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{
+\newcommand{\imprimiragradecimentos}[1]{
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{}{
 		\begin{agradecimentos}
 			\begin{paracol}{1}
 				\setlength{\parindent}{0pt}%
 				\input{#1}
-			\end{paracol}		
+			\end{paracol}
 		\end{agradecimentos}
 	}
 }
@@ -1099,17 +1118,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\imprimirepigrafe}[1]{
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{}{
 		\vspace*{\fill}
 		\vfill
 		%Retira o espaço do parágrafo
 		\hspace*{-2cm}
 		%Adiciona o espaço da margem
-		\hspace*{8cm}	
+		\hspace*{8cm}
 		\begin{minipage}{8cm}
 			\input{#1}
 			\raggedleft{(\imprimirautordaepigrafe) \par}
-		\end{minipage}		
+		\end{minipage}
 		\pagebreak
 	}
 }
@@ -1120,7 +1139,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\imprimirfichacatalografica}[1]{%
-	\ifthenelse{\boolean{uecetex2@ehqualificacao}}{}{%
+	\ifthenelse{\boolean{unifortex2@ehqualificacao}}{}{%
 		\includepdf[pages=1]{#1} %
 	}%
 }
@@ -1130,7 +1149,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\palavraschave}[1]{ %
-	\vspace{\onelineskip} 
+	\vspace{\onelineskip}
 	\noindent \textbf{Palavras-chave:} #1%
 	\hypersetup{%
 		pdfborder = {0 0 0}
@@ -1138,7 +1157,7 @@
 }
 
 \newcommand{\keywords}[1]{ %
-	\vspace{\onelineskip} 
+	\vspace{\onelineskip}
 	\noindent \textbf{Keywords:} #1%
 }
 
@@ -1173,7 +1192,7 @@
 
 % configurações para atender às regras da ABNT
 \counterwithout{quadro}{chapter}
-%\renewcommand{\cftquadroname}{\quadroname\space} 
+%\renewcommand{\cftquadroname}{\quadroname\space}
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 % agora a lista de quadro eh negrito
 \renewcommand{\cftquadrofont}{\bfseries}
@@ -1199,10 +1218,10 @@
 	commentstyle=\color{Green}\ttfamily,
 	basicstyle=\ttfamily,
 	xleftmargin=15pt,
-	stepnumber=1, 
+	stepnumber=1,
 	numbers=left,
 	keywordstyle=\color{blue},
-	tabsize=2,	
+	tabsize=2,
 	rulecolor=\color{black},
 	upquote=true,
 	numberstyle=\tiny\color{gray},
@@ -1221,7 +1240,7 @@
 %
 %% configurações para atender às regras da ABNT
 %\counterwithout{codigofonte}{chapter}
-%\renewcommand{\cftcodigofontename}{\lstlistingname\space} 
+%\renewcommand{\cftcodigofontename}{\lstlistingname\space}
 %\renewcommand*{\cftcodigofonteaftersnum}{\hfill--\hfill}
 
 \AtBeginDocument{ %
@@ -1333,19 +1352,19 @@
 %%              Glossário              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Glossario desenvolvido para a UECE
+%% Glossario desenvolvido para a UNIFOR
 \setlist{nosep}
-\newglossarystyle{glossario-uece}{%
+\newglossarystyle{glossario-unifor}{%
 	%
 	\renewenvironment{theglossary}%
 	{\vspace{-0.3cm}\begin{description}[leftmargin=0cm]\itemsep -1pt}{\end{description}}%
 	%
 	\renewcommand*{\glossaryheader}{}%
-	
+
 	% indicate what to do at the start of each logical group
-	
+
 	\renewcommand*{\glsgroupheading}[1]{%
-		\vspace{0cm}\item[{\glsgetgrouptitle{##1}}] \vspace{\onelineskip}		
+		\vspace{0cm}\item[{\glsgetgrouptitle{##1}}] \vspace{\onelineskip}
 	}
 	%
 	\renewcommand*{\glsgroupskip}{}%
@@ -1356,7 +1375,7 @@
 }
 
 \newcommand{\imprimirglossario}{ %
-	\setglossarystyle{glossario-uece} %	
+	\setglossarystyle{glossario-unifor} %
 	\printglossary[title=\glossarioname,toctitle=\glossarioname] %
 	\addcontentsline{toc}{chapter}{\glossarioname}
 }
@@ -1368,8 +1387,8 @@
 
 \newcommand{\imprimirreferencias}[1]{ %
 	\bibliography{#1} %
-	% TODO Por algum motivo, colocar esse comando antes da bibliografia faz com que o 
-	% ultimo capitulo dos elem fique sem o numero da pagina. 
+	% TODO Por algum motivo, colocar esse comando antes da bibliografia faz com que o
+	% ultimo capitulo dos elem fique sem o numero da pagina.
 	\postextual %
 }
 
@@ -1382,14 +1401,14 @@
 
 % O nome APÊNDICES deve vir em página distinta, redigido em letras maiúsculas, centralizado, negritado, tamanho da fonte 12.
 \newcommand{\imprimirpaginaapendices}{ %
-	
+
 	\newpage %
-	
-	\ifthenelse{\boolean{uecetex2@adicionarPaginaApendicesNoSumario}}{ %
+
+	\ifthenelse{\boolean{unifortex2@adicionarPaginaApendicesNoSumario}}{ %
 		\addcontentsline{toc}{chapter}{\apendicesname} %
 	}{} %
-	
-	\ifthenelse{\boolean{uecetex2@adicionarPaginaApendicesNoCorpoDoTexto}}{ %
+
+	\ifthenelse{\boolean{unifortex2@adicionarPaginaApendicesNoCorpoDoTexto}}{ %
 		\begin{vplace}[0.7] %
 			\centering\textbf{\apendicesname} %
 		\end{vplace} %
@@ -1419,7 +1438,7 @@
 			\settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
 			\parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}
 		}%
-	}    
+	}
 }
 
 \newcommand{\imprimirapendices}{ %
@@ -1427,7 +1446,7 @@
 	\apendices %
 	% Retira o negrito da palavra "Apendice"
 	\PRIVATEapendiceconfig{\normalfont\bfseries\apendicename}{\normalfont\bfseries\apendicesname} %
-	
+
 }
 
 % Correcao do problema de espacamento entre as palavras
@@ -1489,14 +1508,14 @@
 
 % O nome ANEXOS deve vir em página distinta, redigido em letras maiúsculas, centralizado, negritado, tamanho da fonte 12.
 \newcommand{\imprimirpaginaanexo}{ %
-	
+
 	\newpage %
-	
-	\ifthenelse{\boolean{uecetex2@adicionarPaginaAnexosNoSumario}}{ %
+
+	\ifthenelse{\boolean{unifortex2@adicionarPaginaAnexosNoSumario}}{ %
 		\addcontentsline{toc}{chapter}{\bfseries\anexosname} %
 	}{} %
-	
-	\ifthenelse{\boolean{uecetex2@adicionarPaginaAnexosNoCorpoDoTexto}}{ %
+
+	\ifthenelse{\boolean{unifortex2@adicionarPaginaAnexosNoCorpoDoTexto}}{ %
 		\begin{vplace}[0.7] %
 			\centering\textbf{\anexosname} %
 		\end{vplace} %
@@ -1509,7 +1528,7 @@
 	\anexos %
 	% Retira o negrito da palavra "Apendice"
 	\PRIVATEapendiceconfig{\normalfont\bfseries\anexoname}{\normalfont\bfseries\anexosname} %
-	
+
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
